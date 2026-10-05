@@ -1,13 +1,13 @@
 /* Zadanie 1. Stylowanie listy */
 ul.custom-list {
-  margin: 0; /* usunięcie domyślnych marginesów */
-  padding-left: 20px; /* własne wcięcie */
-  list-style-type: square; /* kwadratowe znaczniki */
+  margin: 0; 
+  padding-left: 20px; 
+  list-style-type: square; 
 }
 
 ul.custom-list li {
-  margin-bottom: 8px; /* odstęp 8 px między elementami */
-  transition: transform 0.2s ease; /* płynne przesunięcie */
+  margin-bottom: 8px; 
+  transition: transform 0.2s ease; 
 }
 
 ul.custom-list li:hover {
@@ -17,8 +17,8 @@ ul.custom-list li:hover {
 
 /* Zadanie 2. ::marker */
 ul.custom-list li::marker {
-  font-size: 1.3rem; /* zmiana wielkości znacznika */
-  font-weight: bold; /* zmiana grubości znacznika */
+  font-size: 1.3rem; 
+  font-weight: bold; 
   color: #3b82f6;
 }
 
@@ -48,19 +48,19 @@ ol.numbered-list li::marker {
 
 .nav-menu a:hover {
   background-color: #2563eb;
-  color: #ffffff; /* czytelny stan hover */
+  color: #ffffff; 
 }
 
 @media (max-width: 600px) {
   .nav-menu {
-    flex-direction: column; /* zmiana kierunku na pionowy */
+    flex-direction: column; 
   }
 }
 
 
 /* Zadanie 4. Klasy stanów */
 .item {
-  transition: opacity 0.3s ease, text-decoration 0.3s ease, color 0.3s ease; /* płynna zmiana stanu */
+  transition: opacity 0.3s ease, text-decoration 0.3s ease, color 0.3s ease;
 }
 
 .aktywne {
@@ -70,7 +70,7 @@ ol.numbered-list li::marker {
 
 .wykonane {
   text-decoration: line-through; /* przekreślenie tekstu */
-  opacity: 0.5; /* zmniejszenie opacity */
+  opacity: 0.5; 
 }
 
 .blad {
