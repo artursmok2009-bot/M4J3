@@ -1,0 +1,11 @@
+PHP: Pobiera lub przygotowuje dane po stronie serwera i konwertuje je na format gotowy do przesłania.
+
+JSON: Służy jako lekki, uniwersalny format tekstowy umożliwiający łatwą wymianę struktur danych między serwerem a klientem.
+
+fetch(): Wysyła asynchroniczne zapytanie HTTP z przeglądarki do serwera, aby pobrać dane bez konieczności przeładowywania strony.
+
+JavaScript: Odbiera dane, odczytuje je z formatu JSON oraz wykonuje na nich niezbędną logikę aplikacji (np. filtrowanie czy sortowanie).
+
+DOM: Tworzy i aktualizuje strukturę drzewa dokumentu HTML, wstawiając w odpowiednie miejsca nowe elementy z danymi.
+
+CSS: Nadaje wygląd dynamicznie dodanym elementom DOM oraz odpowiada za ich oprawę wizualną w zależności od przypisanych klas i stanów.
