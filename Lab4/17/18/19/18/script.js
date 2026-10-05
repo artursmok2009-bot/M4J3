@@ -4,7 +4,7 @@ let zadania = Array.isArray(danePoczatkowe) ? [...danePoczatkowe] : [];
 const listaEl = document.querySelector("#lista");
 const inputSzukaj = document.querySelector("#szukaj");
 
-// Renderowanie listy w DOM
+
 function renderujListe(listaDoWyswietlenia) {
   listaEl.innerHTML = "";
 
@@ -29,20 +29,20 @@ function renderujListe(listaDoWyswietlenia) {
   });
 }
 
-// Delegacja zdarzeń: przełączanie stanu oraz usuwanie
+
 listaEl.addEventListener("click", (e) => {
   const li = e.target.closest("li");
   if (!li) return;
 
   const id = Number(li.dataset.id);
 
-  // Jeśli kliknięto przycisk "Usuń"
+ 
   if (e.target.classList.contains("btn-usun")) {
     e.stopPropagation();
     zadania = zadania.filter((t) => t.id !== id);
     renderujListe(filtrujZadania(inputSzukaj.value));
   } 
-  // Jeśli kliknięto element listy (przełączanie stanu)
+ 
   else {
     const zadanie = zadania.find((t) => t.id === id);
     if (zadanie) {
@@ -52,7 +52,7 @@ listaEl.addEventListener("click", (e) => {
   }
 });
 
-// Filtrowanie zadań za pomocą input
+
 function filtrujZadania(fraza) {
   const czystaFraza = fraza.toLowerCase().trim();
   return zadania.filter((item) =>

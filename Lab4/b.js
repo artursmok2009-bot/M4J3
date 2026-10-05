@@ -1,6 +1,6 @@
 // Zadanie 5. Dodawanie elementu
 function dodajElement(tekst) {
-  // Walidacja - zapobieganie dodawaniu pustych wartości
+
   if (!tekst || tekst.trim() === "") {
     return;
   }
@@ -8,7 +8,7 @@ function dodajElement(tekst) {
   const ul = document.querySelector("#lista");
   const li = document.createElement("li");
   
-  // Ustawienie tekstu
+
   li.textContent = tekst;
 
   // Przycisk "Usuń" potrzebny do Zadania 6
@@ -25,7 +25,7 @@ function dodajElement(tekst) {
 const lista = document.querySelector("#lista");
 
 lista.addEventListener("click", (e) => {
-  // Sprawdzenie, czy kliknięto przycisk "Usuń"
+
   if (e.target.classList.contains("btn-usun")) {
     e.stopPropagation(); // Zadanie 7: zatrzymanie propagacji, aby kliknięcie usuń nie zmieniało stanu
     const li = e.target.closest("li");
@@ -54,7 +54,7 @@ const inputSzukaj = document.querySelector("#szukaj");
 inputSzukaj.addEventListener("input", (e) => {
   const fraza = e.target.value.toLowerCase();
   
-  // Filtrowanie z wykorzystaniem filter(), includes() i toLowerCase()
+ 
   const przefiltrowane = zadania.filter(item => 
     item.nazwa.toLowerCase().includes(fraza)
   );
@@ -68,14 +68,14 @@ const btnAZ = document.querySelector("#btn-az");
 const btnZA = document.querySelector("#btn-za");
 
 btnAZ.addEventListener("click", () => {
-  // Sortowanie A-Z za pomocą sort() i localeCompare()
+
   zadania.sort((a, b) => a.nazwa.localeCompare(b.nazwa));
   zapiszDoLocalStorage(zadania);
   renderujListe(zadania);
 });
 
 btnZA.addEventListener("click", () => {
-  // Sortowanie Z-A za pomocą sort() i localeCompare()
+  
   zadania.sort((a, b) => b.nazwa.localeCompare(a.nazwa));
   zapiszDoLocalStorage(zadania);
   renderujListe(zadania);
@@ -90,14 +90,14 @@ function zapiszDoLocalStorage(dane) {
 function wczytajZLocalStorage() {
   const zapisaneDane = localStorage.getItem("zadania");
   
-  // Obsługa sytuacji, gdy zapis jeszcze nie istnieje
+ 
   if (zapisaneDane !== null) {
     return JSON.parse(zapisaneDane);
   }
-  return []; // Zwraca pustą tablicę w przypadku braku danych
+  return []; 
 }
 
-// Inicjalizacja przy uruchomieniu strony
+
 function inicjalizujAplikacje() {
   const wczytane = wczytajZLocalStorage();
   if (wczytane.length > 0) {
@@ -106,7 +106,7 @@ function inicjalizujAplikacje() {
   renderujListe(zadania);
 }
 
-// Funkcja pomocnicza do renderowania listy w DOM
+
 function renderujListe(listaZadan) {
   lista.innerHTML = "";
   listaZadan.forEach(task => {

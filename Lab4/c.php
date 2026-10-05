@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["nazwa_zadania"])) {
 // Zadanie 15. Sesja
 session_start();
 
-// Obsługa sytuacji, gdy zapis jeszcze nie istnieje w sesji
+
 if (!isset($_SESSION['zadania'])) {
     $_SESSION['zadania'] = [];
 }
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["nowe_zadanie"])) {
 
 
 // Zadanie 16. JSON
-// Uwaga: Poniższe nagłówki i json_encode powinny znajdować się w osobnym pliku API (np. api.php)
+
 header('Content-Type: application/json; charset=utf-8');
 
 $daneDojoSON = [

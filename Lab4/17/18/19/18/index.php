@@ -24,7 +24,6 @@ $poczatekZadan = [
 
   <ul id="lista" class="lista-zadan"></ul>
 
-  <!-- Przekazanie danych początkowych z PHP do JavaScript -->
   <script>
     const danePoczatkowe = <?= json_encode($poczatekZadan, JSON_UNESCAPED_UNICODE) ?>;
   </script>
