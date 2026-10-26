@@ -1,12 +1,9 @@
 // Zadanie 17. fetch()
 async function pobierzIDanesRenderuj() {
   const lista = document.querySelector("#lista");
-
   try {
   
     const response = await fetch("api.php");
-
-
     if (!response.ok) {
       throw new Error(`Błąd HTTP! Status: ${response.status}`);
     }

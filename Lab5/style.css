@@ -1,0 +1,198 @@
+/* Zadanie 9 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Zadanie dodatkowe: Licznik prób */
+.counter-box {
+    background-color: #ebf5fb;
+    border: 1px solid #aed6f1;
+    color: #2e86c1;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Zadanie dodatkowe: Pokaż/ukryj hasło */
+.password-wrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.password-wrapper input {
+    flex: 1;
+}
+
+.btn-toggle {
+    padding: 0 12px;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    flex: 0;
+    white-space: nowrap;
+}
+
+.btn-toggle:hover {
+    background-color: #7f8c8d;
+}
+
+/* Zadanie 10 */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button[type="submit"],
+.btn-secondary {
+    flex: 1;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #219150;
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+}
+
+.btn-secondary:hover {
+    background-color: #6c7a7d;
+}
+
+/* Zadanie 20 */
+.char-counter {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* Zadanie dodatkowe: Czerwone obramowanie błędnego pola */
+input.invalid,
+textarea.invalid,
+select.invalid {
+    border: 2px solid #e74c3c !important;
+    background-color: #fdf2f2;
+}
+
+.powitanie-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f8f5;
+    border: 1px solid #a3e4d7;
+    color: #117a65;
+    border-radius: 4px;
+    display: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Zadanie 10: RWD */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .form-container {
+        padding: 15px;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+}
