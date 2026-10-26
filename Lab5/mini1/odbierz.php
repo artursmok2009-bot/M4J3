@@ -1,7 +1,5 @@
 <?php
-
 header('Content-Type: application/json; charset=utf-8');
-
 
 $response = [
     'success' => false,
@@ -10,7 +8,6 @@ $response = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 
     $imie = trim($_POST['imie'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -34,8 +31,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($response['errors'])) {
+    
+        $nazwaPliku = 'wiadomosci.json';
+
+        $dotychczasoweWiadomosci = [];
+        if (file_exists($nazwaPliku)) {
+            $zawartoscPliku = file_get_contents($nazwaPliku);
+            $dotychczasoweWiadomosci = json_decode($zawartoscPliku, true) ?? [];
+        }
+
+      
+        $nowyWpis = [
+            'data_wyslania' => date('Y-m-d H:i:s'),
+            'imie' => $imie,
+            'email' => $email,
+            'wiadomosc' => $wiadomosc
+        ];
+
+        $dotychczasoweWiadomosci[] = $nowyWpis;
+
+        
+        file_put_contents(
+            $nazwaPliku, 
+            json_encode($dotychczasoweWiadomosci, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+        );
+       
+
         $response['success'] = true;
-        $response['message'] = 'Dziękujemy, ' . htmlspecialchars($imie, ENT_QUOTES, 'UTF-8') . '! Twoja wiadomość została wysłana.';
+        $response['message'] = 'Dziękujemy, ' . htmlspecialchars($imie, ENT_QUOTES, 'UTF-8') . '! Twoja wiadomość została zapisana w pliku wiadomosci.json.';
     }
 
 } else {
