@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const API_URL = 'api/reservations.php';
 
-  // Elementy DOM
+
   const themeToggleBtn = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   const themeLabel = document.getElementById('theme-label');
@@ -34,11 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const toastContainer = document.getElementById('toast-container');
 
-  // Stan aplikacji
   let currentResources = [];
   let selectedResourceId = null;
 
-  // --- 1. Obsługa motywu Light / Dark Mode (localStorage) ---
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -61,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     applyTheme(nextTheme);
   });
 
-  // --- 2. Powiadomienia Toast ---
   function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
@@ -74,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 
-  // --- 3. Pomocnicze funkcje daty i bezpieczeństwa ---
   function formatDateYMD(dateObj) {
     const y = dateObj.getFullYear();
     const m = String(dateObj.getMonth() + 1).padStart(2, '0');
@@ -138,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  // --- 4. Pobieranie dostępności i aktywnych rezerwacji (GET) ---
   async function loadAvailability() {
     const range = validateFilterRange();
     if (!range) {
@@ -167,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 5. Renderowanie rzutu biura (CSS Grid) ---
   function renderOfficeMap(resources) {
     officeMap.innerHTML = '';
 
@@ -227,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 6. Renderowanie listy aktywnych rezerwacji ---
   function renderReservationsTable(reservations) {
     reservationsCount.textContent = String(reservations.length);
     reservationsBody.innerHTML = '';
@@ -263,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 7. Okno modalne rezerwacji i wysyłka POST ---
   function openBookingModal(resource) {
     const range = validateFilterRange();
     if (!range) {
@@ -315,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Walidacja daty z przeszłości po stronie klienta
     if (range.startDateTime < new Date(Date.now() - 60000)) {
       showToast('Nie można zarezerwować terminu z przeszłości.', 'error');
       return;
@@ -355,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeBookingModal();
       showToast(data.message || 'Rezerwacja została utworzona!', 'success');
 
-      // Wyświetlenie banera z pobieraniem pliku .ics
+   
       if (data.id) {
         icsBannerText.textContent = `Zarezerwowano: ${data.resource_name} (${range.start} – ${range.end}).`;
         icsDownloadLink.href = `api/ics.php?id=${data.id}`;
@@ -372,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     icsBanner.classList.add('hidden');
   });
 
-  // --- 8. Anulowanie rezerwacji (DELETE) ---
+
   reservationsBody.addEventListener('click', async (e) => {
     const btn = e.target.closest('.cancel-res-btn');
     if (!btn) return;
@@ -400,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- 9. Nasłuchiwanie zmian filtrów i start aplikacji ---
   [filterDateInput, filterStartInput, filterEndInput].forEach((input) => {
     input.addEventListener('change', () => {
       selectedResourceId = null;

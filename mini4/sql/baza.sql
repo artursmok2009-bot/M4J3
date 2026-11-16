@@ -26,7 +26,6 @@ CREATE TABLE `reservations` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dane startowe: 2 sale konferencyjne oraz 6 biurek
 INSERT INTO `resources` (`name`, `type`, `capacity`) VALUES
 ('Sala Konferencyjna Alfa', 'room', 8),
 ('Sala Zarządu Beta', 'room', 12),
@@ -37,7 +36,6 @@ INSERT INTO `resources` (`name`, `type`, `capacity`) VALUES
 ('Biurko B2', 'desk', 1),
 ('Biurko B3', 'desk', 1);
 
--- Przykładowe rezerwacje testowe na jutro
 INSERT INTO `reservations` (`resource_id`, `user_name`, `start_time`, `end_time`) VALUES
 (1, 'Anna Nowak', CONCAT(CURDATE() + INTERVAL 1 DAY, ' 09:00:00'), CONCAT(CURDATE() + INTERVAL 1 DAY, ' 11:00:00')),
 (3, 'Jan Kowalski', CONCAT(CURDATE() + INTERVAL 1 DAY, ' 10:00:00'), CONCAT(CURDATE() + INTERVAL 1 DAY, ' 14:00:00'));

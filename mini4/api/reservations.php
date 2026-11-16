@@ -52,7 +52,7 @@ try {
             $startSql = $startDt->format('Y-m-d H:i:s');
             $endSql   = $endDt->format('Y-m-d H:i:s');
 
-            // Sprawdzenie dostępności zasobów (kolizja: StartA < EndB AND EndA > StartB)
+       
             $stmtResources = $pdo->prepare("
                 SELECT 
                     r.id,
@@ -81,7 +81,7 @@ try {
                 return $row;
             }, $stmtResources->fetchAll());
 
-            // Pobranie listy aktywnych (bieżących i przyszłych) rezerwacji
+   
             $stmtReservations = $pdo->prepare("
                 SELECT 
                     res.id,
@@ -154,7 +154,7 @@ try {
                 ]);
             }
 
-            // Blokada rezerwacji w przeszłości (z 1-minutowym marginesem technicznym)
+     
             if ($startDt < new DateTimeImmutable('-1 minute')) {
                 sendJson(400, [
                     'status'  => 'error',
@@ -162,7 +162,6 @@ try {
                 ]);
             }
 
-            // Sprawdzenie, czy zasób istnieje
             $stmtCheckResource = $pdo->prepare("SELECT id, name FROM resources WHERE id = :id");
             $stmtCheckResource->execute([':id' => $resourceId]);
             $resource = $stmtCheckResource->fetch();
@@ -177,7 +176,6 @@ try {
             $startSql = $startDt->format('Y-m-d H:i:s');
             $endSql   = $endDt->format('Y-m-d H:i:s');
 
-            // Wykrywanie kolizji: StartA < EndB AND EndA > StartB
             $stmtCollision = $pdo->prepare("
                 SELECT COUNT(*) 
                 FROM reservations 

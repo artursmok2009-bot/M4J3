@@ -70,7 +70,6 @@ body {
   padding: 0 1rem;
 }
 
-/* Nagłówek */
 .app-header {
   background-color: var(--surface);
   border-bottom: 1px solid var(--border-color);
@@ -113,7 +112,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Karty sekcji */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -147,7 +145,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Legenda */
 .legend {
   display: flex;
   gap: 1rem;
@@ -179,7 +176,6 @@ body {
   background-color: var(--selected-border);
 }
 
-/* Panel filtrowania */
 .filter-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -227,7 +223,7 @@ input:focus {
   font-weight: 600;
 }
 
-/* Baner .ics */
+
 .ics-banner {
   border-left: 5px solid var(--free-border);
   background-color: var(--free-bg);
@@ -251,7 +247,7 @@ input:focus {
   gap: 0.5rem;
 }
 
-/* Rzut biura - CSS Grid */
+
 .office-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -275,7 +271,7 @@ input:focus {
   user-select: none;
 }
 
-/* Sale konferencyjne zajmują 2 kolumny na siatce biura */
+
 .resource-card.type-room {
   grid-column: span 2;
   min-height: 130px;
@@ -350,7 +346,7 @@ input:focus {
   font-weight: 700;
 }
 
-/* Przyciski */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -422,7 +418,7 @@ input:focus {
   cursor: pointer;
 }
 
-/* Tabela rezerwacji */
+
 .badge {
   background-color: var(--primary);
   color: #ffffff;
@@ -469,7 +465,6 @@ input:focus {
   padding: 1.5rem !important;
 }
 
-/* Okno modalne */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -529,7 +524,7 @@ input:focus {
   margin-top: 1.15rem;
 }
 
-/* Powiadomienia Toast */
+
 .toast-container {
   position: fixed;
   bottom: 1.25rem;
@@ -581,7 +576,6 @@ input:focus {
   }
 }
 
-/* Responsywność */
 @media (max-width: 820px) {
   .office-grid {
     grid-template-columns: repeat(2, 1fr);
