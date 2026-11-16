@@ -9,7 +9,7 @@
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
 
-  /* Kolory priorytetów */
+ 
   --prio-low: #16a34a;
   --prio-low-bg: #dcfce7;
   --prio-med: #d97706;
@@ -17,7 +17,7 @@
   --prio-high: #dc2626;
   --prio-high-bg: #fee2e2;
 
-  /* Kolory statusów */
+
   --status-new: #2563eb;
   --status-new-bg: #dbeafe;
   --status-prog: #b45309;
@@ -49,7 +49,7 @@ body {
   padding: 0 1rem;
 }
 
-/* Nagłówek */
+
 .app-header {
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
@@ -99,7 +99,6 @@ body {
   padding-bottom: 3rem;
 }
 
-/* Komunikaty flash */
 .alert {
   padding: 0.85rem 1.1rem;
   border-radius: var(--radius);
@@ -120,7 +119,7 @@ body {
   color: #991b1b;
 }
 
-/* Pasek statystyk */
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -163,7 +162,7 @@ body {
   line-height: 1.2;
 }
 
-/* Układ dwukolumnowy: 35% panel boczny + 65% główna sekcja */
+
 .layout-grid {
   display: grid;
   grid-template-columns: 35% minmax(0, 1fr);
@@ -190,7 +189,7 @@ body {
   margin-bottom: 1.15rem;
 }
 
-/* Formularze */
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -262,7 +261,6 @@ textarea {
   min-height: 1em;
 }
 
-/* Przyciski */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -348,7 +346,6 @@ textarea {
   background-color: #b91c1c;
 }
 
-/* Pasek wyszukiwania i filtrów */
 .tickets-header {
   margin-bottom: 0.9rem;
 }
@@ -390,7 +387,6 @@ textarea {
   color: #ffffff;
 }
 
-/* Karty zgłoszeń */
 .tickets-list {
   display: flex;
   flex-direction: column;
@@ -414,7 +410,6 @@ textarea {
   display: none;
 }
 
-/* Kolorowe obramowanie priorytetów po lewej stronie karty */
 .ticket-card.priority-niski {
   border-left-color: var(--prio-low);
 }
@@ -475,7 +470,7 @@ textarea {
   border-radius: 999px;
 }
 
-/* Etykiety priorytetów */
+
 .priority-badge-niski {
   background-color: var(--prio-low-bg);
   color: var(--prio-low);
@@ -491,7 +486,6 @@ textarea {
   color: var(--prio-high);
 }
 
-/* Etykiety statusów */
 .status-badge-nowe {
   background-color: var(--status-new-bg);
   color: var(--status-new);
@@ -554,7 +548,7 @@ textarea {
   display: none;
 }
 
-/* Responsywność poniżej 768px — kolumny układają się jedna pod drugą */
+
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: 1fr;

@@ -1,7 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- 1. Licznik znaków opisu (limit: 300 znaków) ---
+
   const descriptionInput = document.getElementById('description');
   const charCounter = document.getElementById('char-counter');
   const MAX_CHARS = 300;
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCharCounter();
   }
 
-  // --- 2. Walidacja formularza przed wysłaniem ---
   const ticketForm = document.getElementById('ticket-form');
   const roomInput = document.getElementById('room');
   const titleInput = document.getElementById('title');
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 3. Filtrowanie i wyszukiwanie na żywo w drzewie DOM ---
   const searchInput = document.getElementById('search-input');
   const filterButtons = document.querySelectorAll('.filter-btn');
   const ticketCards = document.querySelectorAll('.ticket-card');
@@ -118,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 4. Potwierdzenie usunięcia zgłoszenia ---
   const deleteForms = document.querySelectorAll('.delete-form');
   deleteForms.forEach((form) => {
     form.addEventListener('submit', (event) => {

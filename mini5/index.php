@@ -4,7 +4,7 @@ declare(strict_types=1);
 session_start();
 require_once __DIR__ . '/db.php';
 
-// Obsługa formularzy wysyłanych metodą POST (wzorzec PRG: Post / Redirect / Get)
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ticketId = filter_input(INPUT_POST, 'ticket_id', FILTER_VALIDATE_INT);
 
         if ($ticketId) {
-            // Usunięcie dopuszczalne dla zgłoszeń oznaczonych jako zamknięte
+       
             $stmtDelete = $pdo->prepare("DELETE FROM tickets WHERE id = :id AND status = 'zamkniete'");
             $stmtDelete->execute([':id' => $ticketId]);
 
@@ -118,14 +118,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Pobranie komunikatu z sesji (jeśli istnieje)
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
-// Pobranie listy kategorii do formularza
+
 $categories = $pdo->query("SELECT id, name FROM categories ORDER BY id ASC")->fetchAll();
 
-// Pobranie zgłoszeń wraz z nazwą kategorii (SELECT ... JOIN)
+
 $stmtTickets = $pdo->query("
     SELECT 
         t.id,
@@ -143,7 +142,7 @@ $stmtTickets = $pdo->query("
 ");
 $tickets = $stmtTickets->fetchAll();
 
-// Obliczenie statystyk według statusów
+
 $stats = [
     'nowe'      => 0,
     'w_trakcie' => 0,
@@ -196,14 +195,14 @@ function e(string $value): string
   </header>
 
   <main class="container main-wrapper">
-    <!-- Komunikat po operacji POST -->
+ 
     <?php if ($flash): ?>
       <div class="alert alert-<?= e($flash['type']) ?>" role="alert">
         <?= e($flash['text']) ?>
       </div>
     <?php endif; ?>
 
-    <!-- Pasek statystyk -->
+   
     <section class="stats-grid" aria-label="Podsumowanie zgłoszeń">
       <article class="stat-card stat-new">
         <span class="stat-label">Nowe zgłoszenia</span>
@@ -219,9 +218,9 @@ function e(string $value): string
       </article>
     </section>
 
-    <!-- Układ dwukolumnowy: 35% formularz + 65% lista zgłoszeń -->
+   
     <div class="layout-grid">
-      <!-- Lewa kolumna (35%): Formularz dodawania zgłoszenia -->
+     
       <aside class="panel form-panel">
         <h2>Nowe zgłoszenie</h2>
         <p class="panel-desc">Opisz problem techniczny, aby przekazać go do działu IT.</p>
@@ -295,13 +294,12 @@ function e(string $value): string
         </form>
       </aside>
 
-      <!-- Prawa kolumna (65%): Wyszukiwanie, filtry i lista zgłoszeń -->
+      
       <section class="panel tickets-panel" aria-labelledby="tickets-heading">
         <div class="tickets-header">
           <h2 id="tickets-heading">Lista zgłoszeń (<?= count($tickets) ?>)</h2>
         </div>
 
-        <!-- Panel wyszukiwania i filtrowania na żywo -->
         <div class="filter-bar">
           <div class="search-box">
             <input

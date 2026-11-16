@@ -27,7 +27,7 @@ CREATE TABLE `tickets` (
     ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Minimum 4 kategorie usterek
+
 INSERT INTO `categories` (`name`) VALUES
 ('Sprzęt komputerowy'),
 ('Sieć i Wi-Fi'),
@@ -35,7 +35,7 @@ INSERT INTO `categories` (`name`) VALUES
 ('Drukarki i skanery'),
 ('Urządzenia multimedialne');
 
--- Minimum 5 przykładowych zgłoszeń o różnych statusach i priorytetach
+
 INSERT INTO `tickets` (`category_id`, `room`, `title`, `description`, `priority`, `status`, `created_at`) VALUES
 (1, 'Sala 204', 'Brak obrazu na monitorze stanowiska nr 5', 'Po włączeniu komputera jednostka pracuje, ale monitor wyświetla komunikat Brak sygnału (kabel HDMI sprawdzony).', 'wysoki', 'nowe', NOW() - INTERVAL 15 MINUTE),
 (2, 'Pracownia 108', 'Brak dostępu do Internetu na stanowiskach uczniowskich', 'Karta sieciowa pokazuje sieć niezidentyfikowaną, brak przypisanego adresu IP z serwera DHCP.', 'wysoki', 'w_trakcie', NOW() - INTERVAL 2 HOUR),

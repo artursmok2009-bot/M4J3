@@ -24,10 +24,10 @@ header('Content-Disposition: attachment; filename="zgloszenia_it.csv"');
 
 $output = fopen('php://output', 'w');
 
-// Znacznik UTF-8 BOM zapewniający poprawne wyświetlanie polskich znaków w Excelu
+
 fwrite($output, "\xEF\xBB\xBF");
 
-// Nagłówki kolumn CSV
+
 fputcsv($output, [
     'ID',
     'Kategoria',
